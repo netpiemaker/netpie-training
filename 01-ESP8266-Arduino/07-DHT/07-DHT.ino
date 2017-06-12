@@ -9,10 +9,11 @@ DHT dht(DHTPIN, DHTTYPE, 15);
 }
 
 void loop(){
-  int humid = dht.readHumidity(); 
-  int temp = dht.readTemperature(); 
-  char str[] = "";
-  sprintf(str,"H = %d : T = %d",humid,temp);
-  Serial.println(str); 
-  delay(300); 
+  float humid = dht.readHumidity(); 
+  float temp = dht.readTemperature(); 
+  Serial.print("Temp: ");
+  Serial.print(temp);
+  Serial.print(" , Humid: ");
+  Serial.println(humid);
+  delay(1000); 
 }

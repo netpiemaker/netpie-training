@@ -8,10 +8,10 @@ void setup(){
 }
 
 void loop(){
-  if(digitalRead(SWPIN)){
-    digitalWrite(LEDPIN,0); 
+  if(digitalRead(SWPIN) == HIGH){
+    digitalWrite(LEDPIN, LOW); 
   }
   else{
-    digitalWrite(LEDPIN,1);
+    digitalWrite(LEDPIN, HIGH);
   }
 }
