@@ -1,5 +1,5 @@
-#define sw1 D1                 // Define D1 as switch pin
-#define ledPin1 D3             // Define D3 as LED pin
+#define SWPIN   D1                 // Define D1 as switch pin
+#define LEDPIN  D3             // Define D3 as LED pin
 int st_sw1 = 0;
 
 void setup(){
@@ -8,10 +8,10 @@ void setup(){
 }
 
 void loop(){
-  if(digitalRead(sw1)){
-    digitalWrite(ledPin1,0); 
+  if(digitalRead(SWPIN)){
+    digitalWrite(LEDPIN,0); 
   }
   else{
-    digitalWrite(ledPin1,1);
+    digitalWrite(LEDPIN,1);
   }
 }
