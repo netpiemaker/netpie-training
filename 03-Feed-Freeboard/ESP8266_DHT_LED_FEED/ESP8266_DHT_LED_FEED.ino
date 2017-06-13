@@ -2,18 +2,18 @@
 #include <MicroGear.h>
 #include "DHT.h"              // library สำหรับอ่านค่า DHT Sensor
 
-const char* ssid     = <WIFI_SSID>;       // ชื่อ ssid
-const char* password = <WIFI_KEY>;        // รหัสผ่าน wifi
+const char* ssid     = "WIFI_SSID";       // ชื่อ ssid
+const char* password = "WIFI_KEY";        // รหัสผ่าน wifi
 
-#define APPID   <APPID>                   // ให้แทนที่ด้วย AppID
-#define KEY     <APPKEY>                  // ให้แทนที่ด้วย Key
-#define SECRET  <APPSECRET>               // ให้แทนที่ด้วย Secret
+#define APPID   "YOUR_APPID"                   // ให้แทนที่ด้วย AppID
+#define KEY     "YOUR_APPKEY"                  // ให้แทนที่ด้วย Key
+#define SECRET  "YOUR_APPSECRET"               // ให้แทนที่ด้วย Secret
 #define ALIAS   "devicename"              // ชื่ออุปกรณ์
-#define FEEDID  <FEEDID>                  // ใส่ ID ของ FEEDID
-#define FEEDAPI <FEEDAPI>                 // ใส่ API ของ FEED
+#define FEEDID  "YOUR_FEEDID"                  // ใส่ ID ของ FEEDID
+#define FEEDAPI "YOUR_FEEDAPI"                 // ใส่ API ของ FEED
 
 
-//#define neighbor "neighbor"                         // ชื่ออุปกรณ์ที่ต้องการส่งข้อความไปให้
+#define neighbor "neighbor"                         // ชื่ออุปกรณ์ที่ต้องการส่งข้อความไปให้
 #define topicPublish "/dht/" ALIAS                  // topic ที่ต้องการ publish ส่งข้อความ
 
 #define SWITCHPIN D1      // Switch pin
@@ -45,12 +45,12 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) { //
         digitalWrite(LEDPIN, LOW);   // LED on, 
         stateLED = 1;
         digitalWrite(LEDPIN, stateLED);
-        //microgear.chat(neighbor,"1");
+        microgear.chat(neighbor,"1");
     }else{
         digitalWrite(LEDPIN, HIGH);  // LED off
         stateLED = 0;
         digitalWrite(LEDPIN, stateLED);
-        //microgear.chat(neighbor,"0");
+        microgear.chat(neighbor,"0");
     }
 }
 
