@@ -2,12 +2,12 @@
 #include <MicroGear.h>
 //#include "DHT.h"              // library สำหรับอ่านค่า DHT Sensor
 
-const char* ssid     = <WIFI_SSID>;       // ชื่อ ssid
-const char* password = <WIFI_KEY>;        // รหัสผ่าน wifi
+const char* ssid     = "netpie1";        // ชื่อ ssid
+const char* password = "netpie1234";                  // รหัสผ่าน wifi
 
-#define APPID   <APPID>                   // ให้แทนที่ด้วย AppID
-#define KEY     <APPKEY>                  // ให้แทนที่ด้วย Key
-#define SECRET  <APPSECRET>               // ให้แทนที่ด้วย Secret
+#define APPID   "netpietraining"                              // ให้แทนที่ด้วย AppID
+#define KEY     "6jJvMURYR3GqJNq"                   // ให้แทนที่ด้วย Key
+#define SECRET  "12PQEb4wXN7OY9NGZntdHz2WR"         // ให้แทนที่ด้วย Secret
 #define ALIAS   "devicename"                            // ชื่ออุปกรณ์
 
 #define neighbor "neighbor"                         // ชื่ออุปกรณ์ที่ต้องการส่งข้อความไปให้
