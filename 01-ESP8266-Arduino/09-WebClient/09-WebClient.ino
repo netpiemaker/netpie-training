@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid     = "netpie1";
-const char* password = "netpie2560"; 
+const char* ssid     = YOUR_WIFI_SSI;
+const char* password = YOUR_WIFI_PASSWORD; 
 
 void setup() {
   Serial.begin(115200);
