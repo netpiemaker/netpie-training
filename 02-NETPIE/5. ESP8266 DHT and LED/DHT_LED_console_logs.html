@@ -1,0 +1,32 @@
+<script src="https://cdn.netpie.io/microgear.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript">
+	//-------- Microgear --------//
+	const APPID = "netpietraining";		// กำหนดค่า appid
+	const KEY = "z3XlXj3C7MOL7Qo";			// กำหนดค่า key
+	const SECRET = "90HqWqmtIGOYIh3eFQvTXK0Ie";		// กำหนดค่า secret
+	const ALIAS = "center";
+
+	var microgear = Microgear.create({
+		key: KEY,
+		secret: SECRET,
+		alias : ALIAS
+	});
+
+	microgear.on('message',function(topic,msg) {
+		console.log(topic +" , "+ msg);
+	});
+
+	microgear.on('connected', function() {
+		microgear.setAlias(ALIAS);
+		microgear.subscribe("/dht/+");
+		$('#data').text("Now I am connected with netpie...");
+	});
+	
+	microgear.connect(APPID);
+	//-------- END Microgear --------//
+</script>
+
+<div id="data" style="padding: 20px;">_____</div>

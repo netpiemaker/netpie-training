@@ -1,0 +1,28 @@
+<script src="https://cdn.netpie.io/microgear.js"></script>
+<script type="text/javascript" src="config/config.js"></script>	<!-- เรียกไฟล์ config ที่มีค่าตัวแปร appid, key และ secret ที่จำเป็นสำหรับการเชื่อมต่อ NETPIE -->
+
+<script type="text/javascript">
+	const ALIAS = "bob";			// กำหนดชื่อ device สำหรับติดต่อสื่องสาร และแสดงตัวตนที่ออนไลน์อยู่
+
+	var microgear = Microgear.create({
+		key: KEY,
+		secret: SECRET,
+		alias : ALIAS
+	});
+
+	microgear.on('message',function(topic,msg) {
+		microgear.chat("alice","Hi, I'm bob. "+Date.now());
+		document.getElementById("data").innerHTML = msg;
+	});
+
+	microgear.on('connected', function() {
+		microgear.setAlias(ALIAS);
+		document.getElementById("data").innerHTML = "Now I am connected with netpie...";
+	});
+	
+	microgear.connect(APPID);
+	
+</script>
+
+<div>Name : bob</div>
+<div id="data">_____</div>

@@ -1,0 +1,103 @@
+<script src="https://cdn.netpie.io/microgear.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript">
+	//-------- Microgear --------//
+	const APPID = "netpietraining";		// กำหนดค่า appid
+	const KEY = "z3XlXj3C7MOL7Qo";			// กำหนดค่า key
+	const SECRET = "90HqWqmtIGOYIh3eFQvTXK0Ie";		// กำหนดค่า secret
+	const ALIAS = "center";
+	
+	var listDevice = ["A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10","C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","D1","D2","D3","D4","D5","D6","E1","E2","E3","E4","E5","E6"];
+
+	var microgear = Microgear.create({
+		key: KEY,
+		secret: SECRET,
+		alias : ALIAS
+	});
+
+	microgear.on('message',function(topic,msg) {
+		console.log(topic +" , "+ msg);
+		if(topic.startsWith("/"+APPID+"/dht")){
+			var name = topic.replace("/"+APPID+"/dht/","")
+			var data = msg.split(",");
+			if(data.length==3 && listDevice.indexOf(name)!=-1){
+				console.log("Humid "+data[0]+" %, Temp "+data[1]+" *C , Switch "+data[2]);
+				document.getElementById(name).innerHTML = name+'<br>Humid : '+data[0]+' %RH<br>Temp : '+data[1]+' *C<br>Switch : '+(data[2]==1?'NO':'OFF');
+				if(data[1]>=40){
+					document.getElementById(name).style.backgroundColor = "#FA5858";
+				}else if(data[1]>=35){
+					document.getElementById(name).style.backgroundColor = "#FE9A2E";
+				}else if(data[1]>=27){
+					document.getElementById(name).style.backgroundColor = "#FFBF00";
+				}else{
+					document.getElementById(name).style.backgroundColor = "";
+				}
+			}
+		}
+	});
+
+	microgear.on('connected', function() {
+		microgear.setAlias(ALIAS);
+		microgear.subscribe("/dht/+");
+		$('#data').text("Now I am connected with netpie...");
+	});
+	
+	microgear.connect(APPID);
+	//-------- END Microgear --------//
+</script>
+
+<div id="data" style="padding: 20px;">_____</div>
+<div class="container-fluid">
+	<div class="row" id="a"></div>
+	<div class="row" id="b"></div>
+	<div class="row" id="c"></div>
+	<div class="row" id="d"></div>
+	<div class="row" id="e"></div>
+</div>
+<script type="text/javascript">
+
+var block = '';
+for(var i=1; i<=10; i++){
+	block = $('<div class="col-md-1" id="A'+i+'" style="border: 1px solid black;text-align:center;">A'+i+'<br>Humid : - %RH<br>Temp : - *C<br>Switch : -</div>');
+	$('#a').append(block);
+}
+
+for(var i=1; i<=10; i++){
+	block = $('<div class="col-md-1" id="B'+i+'" style="border: 1px solid black;text-align:center;">B'+i+'<br>Humid : - %RH<br>Temp : - *C<br>Switch : -</div>');
+	$('#b').append(block);
+}
+
+for(var i=1; i<=10; i++){
+	block = $('<div class="col-md-1" id="C'+i+'" style="border: 1px solid black;text-align:center;">C'+i+'<br>Humid : - %RH<br>Temp : - *C<br>Switch : -</div>');
+	$('#c').append(block);
+}
+
+for(var i=1; i<=2; i++){
+	block = $('<div class="col-md-1" style="border: none;"></div>');
+	$('#d').append(block);
+}
+for(var i=1; i<=6; i++){
+	block = $('<div class="col-md-1" id="D'+i+'" style="border: 1px solid black;text-align:center;">D'+i+'<br>Humid : - %RH<br>Temp : - *C<br>Switch : -</div>');
+	$('#d').append(block);
+}
+for(var i=1; i<=2; i++){
+	block = $('<div class="col-md-1" style="border: none;"></div>');
+	$('#d').append(block);
+}
+
+for(var i=1; i<=2; i++){
+	block = $('<div class="col-md-1" style="border: none;"></div>');
+	$('#e').append(block);
+}
+for(var i=1; i<=6; i++){
+	block = $('<div class="col-md-1" id="E'+i+'" style="border: 1px solid black;text-align:center;">E'+i+'<br>Humid : - %RH<br>Temp : - *C<br>Switch : -</div>');
+	$('#e').append(block);
+}
+for(var i=1; i<=2; i++){
+	block = $('<div class="col-md-1" style="border: none;"></div>');
+	$('#e').append(block);
+}
+
+</script>
