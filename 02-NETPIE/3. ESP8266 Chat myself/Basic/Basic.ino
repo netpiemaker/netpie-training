@@ -4,12 +4,12 @@
 #include <ESP8266WiFi.h>
 #include <MicroGear.h>
 
-const char* ssid     = "netpie1";        // ชื่อ ssid
-const char* password = "netpie1234";                  // รหัสผ่าน wifi
+const char* ssid     = "YOUR_WIFI_SSID";                  // ชื่อ ssid
+const char* password = "YOUR_WIFI_PASSWORD";              // รหัสผ่าน wifi
 
-#define APPID   "netpietraining"                              // ให้แทนที่ด้วย AppID
-#define KEY     "6jJvMURYR3GqJNq"                   // ให้แทนที่ด้วย Key
-#define SECRET  "12PQEb4wXN7OY9NGZntdHz2WR"         // ให้แทนที่ด้วย Secret
+#define APPID   "YOUR_APPID"                              // ให้แทนที่ด้วย AppID
+#define KEY     "YOUR_KEY"                                // ให้แทนที่ด้วย Key
+#define SECRET  "YOUR_SECRET"                             // ให้แทนที่ด้วย Secret
 #define ALIAS   "esp8266"
 
 WiFiClient client;

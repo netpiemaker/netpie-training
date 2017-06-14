@@ -1,3 +1,3 @@
-	const APPID = "netpietraining";		// กำหนดค่า appid
-	const KEY = "z3XlXj3C7MOL7Qo";			// กำหนดค่า key
-	const SECRET = "90HqWqmtIGOYIh3eFQvTXK0Ie";		// กำหนดค่า secret
+	const APPID = "YOUR_APPID";			// กำหนดค่า appid
+	const KEY = "YOUR_KEY";				// กำหนดค่า key
+	const SECRET = "YOUR_SECRET";		// กำหนดค่า secret

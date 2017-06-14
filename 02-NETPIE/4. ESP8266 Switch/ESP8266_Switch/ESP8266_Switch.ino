@@ -2,16 +2,16 @@
 #include <MicroGear.h>
 //#include "DHT.h"              // library สำหรับอ่านค่า DHT Sensor
 
-const char* ssid     = "netpie1";        // ชื่อ ssid
-const char* password = "netpie1234";                  // รหัสผ่าน wifi
+const char* ssid     = "YOUR_WIFI_SSID";                  // ชื่อ ssid
+const char* password = "YOUR_WIFI_PASSWORD";              // รหัสผ่าน wifi
 
-#define APPID   "netpietraining"                              // ให้แทนที่ด้วย AppID
-#define KEY     "6jJvMURYR3GqJNq"                   // ให้แทนที่ด้วย Key
-#define SECRET  "12PQEb4wXN7OY9NGZntdHz2WR"         // ให้แทนที่ด้วย Secret
-#define ALIAS   "devicename"                            // ชื่ออุปกรณ์
+#define APPID   "YOUR_APPID"                              // ให้แทนที่ด้วย AppID
+#define KEY     "YOUR_KEY"                                // ให้แทนที่ด้วย Key
+#define SECRET  "YOUR_SECRET"                             // ให้แทนที่ด้วย Secret
+#define ALIAS   "devicename"                              // ชื่ออุปกรณ์
 
-#define neighbor "neighbor"                         // ชื่ออุปกรณ์ที่ต้องการส่งข้อความไปให้
-//#define topicPublish "/dht/" ALIAS                  // topic ที่ต้องการ publish ส่งข้อความ
+#define neighbor "neighbor"                               // ชื่ออุปกรณ์ที่ต้องการส่งข้อความไปให้
+//#define topicPublish "/dht/" ALIAS                      // topic ที่ต้องการ publish ส่งข้อความ
 
 #define SWITCHPIN D1      // Switch pin
 #define LEDPIN D3         // LED pin
@@ -30,21 +30,20 @@ WiFiClient client;
 int timer = 0;
 MicroGear microgear(client);
 
-void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) { // 
+void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     Serial.print("Incoming message --> ");
     msg[msglen] = '\0';
     Serial.println((char *)msg);
 
-    // สถานะ LED ที่แสดงผล จะติดก็ต่อเมื่อสั่ง LOW แต่ถ้าเป็น LED ที่ต่อแยก จะต้องสั่งเป็น HIGH 
+    // สถานะ LED บน NodeMCU ที่แสดงผล จะติดก็ต่อเมื่อสั่ง LOW 
+    // แต่ถ้าเป็น LED ที่ต่อแยก จะต้องสั่งเป็น HIGH 
     if(*(char *)msg == '1'){
-        digitalWrite(LEDPIN, LOW);   // LED on, 
         stateLED = 1;
-        digitalWrite(LEDPIN, stateLED);
+        digitalWrite(LEDPIN, HIGH); // LED on
         //microgear.chat(neighbor,"1");
     }else{
-        digitalWrite(LEDPIN, HIGH);  // LED off
         stateLED = 0;
-        digitalWrite(LEDPIN, stateLED);
+        digitalWrite(LEDPIN, LOW); // LED off
         //microgear.chat(neighbor,"0");
     }
 }

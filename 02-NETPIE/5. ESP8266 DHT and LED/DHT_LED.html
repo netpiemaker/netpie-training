@@ -4,9 +4,9 @@
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
 	//-------- Microgear --------//
-	const APPID = "netpietraining";		// กำหนดค่า appid
-	const KEY = "z3XlXj3C7MOL7Qo";			// กำหนดค่า key
-	const SECRET = "90HqWqmtIGOYIh3eFQvTXK0Ie";		// กำหนดค่า secret
+	const APPID = "YOUR_APPID";			// กำหนดค่า appid
+	const KEY = "YOUR_KEY";				// กำหนดค่า key
+	const SECRET = "YOUR_SECRET";		// กำหนดค่า secret
 	const ALIAS = "center";
 
 	var listDevice = ["A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10","C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","D1","D2","D3","D4","D5","D6","E1","E2","E3","E4","E5","E6"];
@@ -24,7 +24,7 @@
 			var data = msg.split(",");
 			if(data.length==3 && listDevice.indexOf(name)!=-1){
 				console.log("Humid "+data[0]+" %, Temp "+data[1]+" *C , Switch "+data[2]);
-				document.getElementById(name).innerHTML = name+'<br>Humid : '+data[0]+' %RH<br>Temp : '+data[1]+' *C<br>Switch : '+(data[2]==1?'NO':'OFF');
+				document.getElementById(name).innerHTML = name+'<br>Humid : '+data[0]+' %RH<br>Temp : '+data[1]+' *C<br>Switch : '+(data[2]==1?'ON':'OFF');
 			}
 		}
 	});
