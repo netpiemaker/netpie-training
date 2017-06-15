@@ -17,5 +17,6 @@ https://drive.google.com/open?id=0B9civcyk2e9RektOWUkyZ0dnMEU
 ### Part 5: Freeboard
 https://drive.google.com/open?id=0B9civcyk2e9RVTcyRHcxQTVKb0U
 
-
+### Part 6: Conclusion
+https://docs.google.com/presentation/d/1cu8A9r0jhbXAYx1GeWfulmDY8AReshL_WLg0g4-wHQM
 
