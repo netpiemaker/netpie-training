@@ -34,7 +34,7 @@
 	}
 
 	microgear.on('message',function(topic,msg) {
-		microgear.chat(NEIGHBOR,"Hi, I'm bob. "+getDate());
+		microgear.chat(NEIGHBOR,"Hi, I'm "+ALIAS+". "+getDate());
 		document.getElementById("data").innerHTML = msg;
 	});
 
