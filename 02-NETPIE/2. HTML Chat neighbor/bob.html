@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
 	const ALIAS = "bob";			// กำหนดชื่อ device สำหรับติดต่อสื่องสาร และแสดงตัวตนที่ออนไลน์อยู่
-
+	const NEIGHBOR = "alice";
 	var microgear = Microgear.create({
 		key: KEY,
 		secret: SECRET,
@@ -34,7 +34,7 @@
 	}
 
 	microgear.on('message',function(topic,msg) {
-		microgear.chat("alice","Hi, I'm bob. "+getDate());
+		microgear.chat(NEIGHBOR,"Hi, I'm bob. "+getDate());
 		document.getElementById("data").innerHTML = msg;
 	});
 
