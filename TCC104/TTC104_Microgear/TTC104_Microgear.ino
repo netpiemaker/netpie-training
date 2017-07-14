@@ -2,13 +2,13 @@
 #include <MicroGear.h>
 #include <math.h>
 
-const char* ssid     = "@A4MY_wifi";                  // ชื่อ ssid
-const char* password = "88888888";              // รหัสผ่าน wifi
+const char* ssid     = "YOUR_WIFI_SSID";                  // ชื่อ ssid
+const char* password = "YOUR_WIFI_PASSWORD";              // รหัสผ่าน wifi
 
-#define APPID   "armydev"                              // ให้แทนที่ด้วย AppID
-#define KEY     "5B1qJc8XO4cDVDI"                                // ให้แทนที่ด้วย Key
-#define SECRET  "tagjjnUiuLdWRkXt0cAHzPTKZ"                             // ให้แทนที่ด้วย Secret
-#define ALIAS   "esp8266"                              // ชื่ออุปกรณ์
+#define APPID   "YOUR_APPID"                              // ให้แทนที่ด้วย AppID
+#define KEY     "YOUR_KEY"                                // ให้แทนที่ด้วย Key
+#define SECRET  "YOUR_SECRET"                             // ให้แทนที่ด้วย Secret
+#define ALIAS   "devicename"                              // ชื่ออุปกรณ์
 
 #define LEDPIN D0                                         // LED pin
 #define TTC104_PIN A0
